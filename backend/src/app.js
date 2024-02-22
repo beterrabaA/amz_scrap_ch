@@ -1,8 +1,10 @@
 import express from "express";
+import "dotenv/config";
 
 class App {
   constructor() {
     this.app = express();
+    this.port = process.env.PORT || 3000;
     this.middlewaresInitialize();
   }
 
@@ -12,7 +14,9 @@ class App {
   }
 
   listen() {
-    this.app.listen(3333, () => console.log("server is running"));
+    this.app.listen(this.port, () =>
+      console.log(`server is running at http://localhost:${this.port} `)
+    );
   }
 }
 
