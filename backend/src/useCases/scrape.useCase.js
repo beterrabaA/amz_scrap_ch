@@ -7,6 +7,7 @@ export class ScrapeUseCase {
   async loadPage() {
     const productsData = [];
 
+    const html = await this.getHTML();
     const $ = cheerio.load(html);
 
     const texto = $("h2.title").text(); // "Hello world"
@@ -14,5 +15,11 @@ export class ScrapeUseCase {
     console.log(texto);
 
     return { texto };
+  }
+
+  async getHTML(product) {
+    const url = `https://www.amazon.com.br/s?k=${product}`;
+    const { data: html } = await axios.get(url);
+    return html;
   }
 }
