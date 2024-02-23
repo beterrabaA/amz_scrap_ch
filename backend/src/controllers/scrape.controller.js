@@ -10,7 +10,7 @@ export class ScrapeController {
     const search = req.query.keyword;
 
     try {
-      // use loadPage from usecase layer to get data
+      // use loadPage from usecase layer to get data and use search as function param
       const data = await this.usecase.loadPage(search);
       // return json format data and status code 200 --- ok status
       return res.status(200).json(data);

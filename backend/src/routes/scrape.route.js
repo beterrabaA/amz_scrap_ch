@@ -9,6 +9,7 @@ export class ScrapeRoute {
   }
 
   initRoutes() {
+    // get method "/api/scrape" route
     this.router.get(
       "/scrape",
       this.controller.scrapePage.bind(this.controller)
