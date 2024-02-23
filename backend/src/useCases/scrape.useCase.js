@@ -15,21 +15,22 @@ export class ScrapeUseCase {
 
   // async method to request from amazon website
   async getHTML(productName) {
-    // amazon url
-    const amazon_url = `https://www.amazon.com/s?k=${productName}`;
+    const amazon_url = `https://www.amazon.com/s?k=${productName}`; // amazon url
+
     // add a fake header to be authorized and get acess of html content
     const fakeHead = {
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
     };
+
     // get amazon html using url and custom header
     const response = await axios.get(amazon_url, { headers: fakeHead });
-    // html data
-    const html = response.data;
-    // Products list
-    const productsList = [];
-    // Use Cheerio to parse the HTML
-    const $ = cheerio.load(html);
+
+    const html = response.data; // html data
+
+    const productsList = []; // Products list
+
+    const $ = cheerio.load(html); // Use Cheerio to parse the HTML
 
     const products = $('[data-component-type="s-search-result"]');
 

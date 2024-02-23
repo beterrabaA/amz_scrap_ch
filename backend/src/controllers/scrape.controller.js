@@ -6,7 +6,7 @@ export class ScrapeController {
   }
 
   async scrapePage(req, res, next) {
-    // get product name from query params
+    // get product name from "keyword" query params
     const search = req.query.keyword;
 
     try {
