@@ -1,11 +1,18 @@
 import express from "express";
+import { ScrapeRoute } from "./routes/scrape.route.js";
 import "dotenv/config";
 
 class App {
   constructor() {
     this.app = express();
     this.port = process.env.PORT || 3000;
+    this.scrapeRoute = new ScrapeRoute();
     this.middlewaresInitialize();
+    this.initializeRoutes();
+  }
+
+  initializeRoutes() {
+    this.app.use("/api", this.scrapeRoute.router);
   }
 
   middlewaresInitialize() {
