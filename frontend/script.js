@@ -6,7 +6,7 @@ $(document).ready(() =>
     $(function () {
       $.ajax({
         type: "GET",
-        url: `http://localhost:4000/api/scrape?keyword=${searchValue.value}`,
+        url: `http://localhost:3000/api/scrape?keyword=${searchValue.value}`,
         success: (data) => innerList(data),
       });
     })
