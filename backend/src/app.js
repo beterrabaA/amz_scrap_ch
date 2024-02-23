@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { ScrapeRoute } from "./routes/scrape.route.js";
 import "dotenv/config";
 
@@ -19,6 +20,7 @@ class App {
   // initialize middlewares
   middlewaresInitialize() {
     this.app.use(express.json());
+    this.app.use(cors());
     this.app.use(express.urlencoded({ extended: true }));
   }
 
