@@ -15,6 +15,7 @@ export class ScrapeUseCase {
 
   // async method to request from amazon website
   async getHTML(productName) {
+    const texto = productName.replace(" ", "+");
     const amazon_url = `https://www.amazon.com/s?k=${productName}`; // amazon url
 
     // add a fake header to be authorized and get acess of html content
