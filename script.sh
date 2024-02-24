@@ -6,7 +6,7 @@ cd backend
 # install backend dependencies
 npm install
 
-# start the server
+# start the server and run it in the background
 npm start &
 
 # go to frontend directory

@@ -1,6 +1,10 @@
+// get the input element
 const searchValue = document.getElementById("text-input");
+
+// get the list element
 const liElement = document.getElementById("ul-products");
 
+// function to get the data from the server
 $(document).ready(() =>
   $("button").click(() =>
     $(function () {
@@ -13,6 +17,7 @@ $(document).ready(() =>
   )
 );
 
+// function to create the list element for each product
 function makeContainer(product) {
   const { title, price, rating, reviews, imageUrl } = product;
   return `<div class="content">
@@ -25,9 +30,12 @@ function makeContainer(product) {
 }
 
 function innerList(data) {
+  // remove all children from the list element
   while (liElement.firstChild) {
     liElement.removeChild(liElement.firstChild);
   }
+  // append the new data to the list element
   const $products = $("#ul-products");
+  // loop through the data and append it to the list
   $.each(data, (i, products) => $products.append(`${makeContainer(products)}`));
 }
