@@ -50,18 +50,18 @@ The response will be a JSON with the following structure:
 ```json
 [
   {
-    "title": "Product Title",
-    "price": "Product Price",
-    "rating": "Product rate",
-    "reviews": "Product reviews",
-    "image": "Product Image URL"
+    "title": "product_title",
+    "price": "$9.99",
+    "rating": "4,5 out of 5 stars",
+    "reviews": "345",
+    "image": "product_image_url"
   },
   {
-    "title": "Product Title",
-    "price": "Product Price",
-    "rating": "Product rate",
-    "reviews": "Product reviews",
-    "image": "Product Image URL"
+    "title": "product_title_2",
+    "price": "$59.97",
+    "rating": "3,7 out of 5 stars",
+    "reviews": "227",
+    "image": "product_image_url"
   }
 ]
 ```
