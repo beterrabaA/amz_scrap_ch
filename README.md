@@ -1,40 +1,67 @@
-### Objective
+# Scrapper Challenge
+This is a simple scrapper that gets the title, description and image of a amazon website.It has backend and frontend. The backend is made with node and the frontend is made with simple (HTML,Javacript,CSS).
 
-Create a simple script to scrape Amazon product listings from the first page of search results for a given keyword.
+## Backend
+The backend is made with node and it uses the following libraries:
+- express
+- cheerio
+- axios
 
-# Task Requirements:
+## Frontend
+The frontend is made with simple HTML, Javascript and CSS. It uses the following libraries:
+- Ajax (Jquery)
+- Bootstrap
 
-### Backend/API (Node.js):
+## How to run
+Can be runned in two ways:
+### Using bash commands
 
-- [x] Set up a Node.js project with the necessary dependencies (express, axios, cheerio, etc.).
-- [ ] Write a script using axios to fetch the contents of the Amazon search results page for a given keyword.
-- [ ] Use cheerio to parse the HTML content and extract the following details for each product listing on the first page:
-- [ ] Product Title
-- [ ] Rating (stars out of five)
-- [ ] Number of reviews
-- [ ] Product image URL
-- [ ] Create an endpoint /api/scrape where a GET request with a query parameter ?keyword=yourKeyword initiates the scraping process and returns the extracted data in JSON format.
+```bash
+bash ./run.sh
+```
 
-### Frontend (HTML, CSS, JavaScript):
+### Manually
+To run the backend you need to have node installed. Then you can run the following commands:
+```bash
+cd backend
+npm install
+npm start
+```
+To run the frontend you just need to open the index.html file in your browser.
+```bash
+cd frontend
+npm install
+npm start
+```
+## How to use
+To use the scrapper you just need to put the name of the amazon product in the input and click the search button. The result will be shown in the screen.
 
-- [ ] Develop a simple webpage with:
-- [ ] An input field to enter the search keyword.
-- [ ] A button to initiate the scraping process.
-- [ ] Style the webpage to be user-friendly and presentable.
-- [ ] Implement JavaScript to make an AJAX call to the backend endpoint when the button is clicked, and display the results formatted cleanly on the page.
+## API Documentation
+The backend has a simple API that can be used to get the product information. The API has only one endpoint:
 
-## Documentation:
+```http
+  GET /api/scrapper?keyword=product_name
+```
+| Params   | Type       | Description                           |
+| :---------- | :--------- | :---------------------------------- |
+| `keyword` | `string` | Search params  |
 
-Provide comments within your code to offer clarity on your logic and process.
-Include a README.md file with the setup and running instructions
-Considerations:
-
-Ensure you handle errors gracefully both on the backend and frontend.
-Provide clear instructions on how to run the application.
-Submission and Deadline:
-
-Please submit your completed tasks no later than Monday, February 26th
-
-Use the fields below to either submit the project repository URL or upload the source code in compressed .zip format.
-
-Submissions received after February 26 will not be eligible for consideration.
+The response will be a JSON with the following structure:
+```json
+[
+  {
+    "title": "Product Title",
+    "price": "Product Price",
+    "rating": "Product rate",
+    "reviews": "Product reviews",
+    "image": "Product Image URL"
+  },
+  {
+    "title": "Product Title",
+    "price": "Product Price",
+    "rating": "Product rate",
+    "reviews": "Product reviews",
+    "image": "Product Image URL"
+  }
+]
+```
